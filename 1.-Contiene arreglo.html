@@ -1,0 +1,27 @@
+<script>
+    function contiene(word1,word2){
+        for(var i=0;i<word1.length;i++){
+            letterTmp = word1.charAt(i);//letra temporal.
+            if(letterIsExist(letterTmp,word2)== false){//preguntar si existe la letra en la otra palabra.
+                    return false;
+            }
+        }
+        return true;
+    }
+    
+    function letterIsExist(letter,word2){//funcion para comparar si existe la letra en la palabra2
+        for(var i=0;i<word2.length;i++){
+            if(word2.charAt(i) ==  letter){
+                return true;//regresa true si la letra existe en la palabra2. 
+            }
+        }
+        return false;//regresa false si no encuentra la letra en la palabra2.
+    }
+
+    console.log(contiene("casa", "carcasa"));
+    console.log(contiene("prueba", "sapaureb"));
+    console.log(contiene("javascript","avascript"));
+    console.log(contiene("acara","atada"));
+    console.log(contiene("ccccaaaa","ca"));
+
+</script>

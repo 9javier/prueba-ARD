@@ -1,0 +1,28 @@
+<script>
+  function sortCadenaText(cadena){
+
+    var cadenaTmp = cadena.split(' ');//separar cadenas y agregarlas a un array.
+    var cadenaConNumero=[];
+    cadenaTmp.forEach((element,index) => {//bucle buscando por palabra.
+       for(var i=0;i<element.toString().length;i++){
+            var letter = element.charAt(i);
+            if(!isNaN(letter)){//preguntar si la letra es numero ó no.
+                cadenaConNumero.push({number:letter,word:element});
+            }
+        }
+    });
+    var cadenaSort=[];
+    //obtener los numeros
+    cadenaConNumero.map((element,index) =>{cadenaSort.push(element.number)});//agregar numeros a el arreglo para comparalos despues.
+    cadenaSort.sort();//ordenar los numeros de las palabras.
+    var mainWord='';
+    cadenaSort.forEach(number=>{
+        var result = cadenaConNumero.find(e => e.number == number);
+            mainWord += result.word+' ';//concatenar cadena de texto final.
+    });
+    return mainWord;
+   }
+
+   console.log(sortCadenaText("estas3 1hola c2omo"));
+   console.log(sortCadenaText("tin4a l2ava ani1ta l3a"));
+</script>
